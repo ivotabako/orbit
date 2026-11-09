@@ -14,5 +14,4 @@ Enable YouTube Data API v3 in a Google Cloud project. Configure the OAuth consen
 
 Alternatively import Google Takeout's YouTube subscriptions.csv. Import replaces the current library. Orbit JSON exports preserve favorites and visits as well. Sample imagery is illustrative and loaded from Unsplash; real synced channels use YouTube thumbnails. Google Fonts are loaded remotely. No analytics.
 
-
 Unsubscribing is handled on the channel's YouTube page, keeping the initial app read-only. No backend is needed unless you want cross-device synchronization, unattended refresh, or shared accounts. Orbit cannot measure visits in other apps, detect shadow bans, or retrieve unavailable channels.
