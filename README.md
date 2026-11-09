@@ -2,6 +2,10 @@
 
 A front-end-only React application for browsing YouTube subscriptions. Run `npm install`, then `npm run dev`. Production: `npm run build`.
 
+## Deployment
+
+Pushes to `main` now trigger automatic deployment to GitHub Pages via [deploy-pages.yml](./.github/workflows/deploy-pages.yml). The production build uses the repository path as Vite `base` during GitHub Actions so assets resolve correctly on project pages.
+
 The first launch displays labeled sample channels. Search, topic filters, favorites, grid/carousel browsing, and local visit ranking work immediately. Visits count channel links opened from Orbit, not YouTube watch history. All library data is stored in localStorage; export JSON for backup or device transfer.
 
 ## Connect your subscriptions
