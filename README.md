@@ -10,7 +10,19 @@ The first launch displays labeled sample channels. Search, topic filters, favori
 
 ## Connect your subscriptions
 
-Enable YouTube Data API v3 in a Google Cloud project. Configure the OAuth consent screen and add your account as a test user if needed. Create an OAuth Web application client and authorize the exact app origin (e.g. http://127.0.0.1:5173). Enter its public client ID in Connection & data. No client secret or server is required. The app requests only youtube.readonly and fetches every subscription page. Access tokens stay in memory and are never written to localStorage. Reconnect to refresh. Public distribution may require Google OAuth verification.
+Enable YouTube Data API v3 in a Google Cloud project. Configure the OAuth consent screen and add your account as a test user if needed. Create an OAuth Web application client and authorize the exact app origin (e.g. http://127.0.0.1:5173). Configure its public client ID once for the application; visitors only click **Connect with Google**.
+
+For GitHub Pages, open **Settings → Secrets and variables → Actions → Variables**, create a repository variable named `VITE_GOOGLE_CLIENT_ID`, and set it to your Web client ID (ending in `.apps.googleusercontent.com`). Run the deployment workflow again after changing it. The workflow refuses to deploy without this variable. Authorize `https://ivotabako.github.io` as a JavaScript origin in Google Cloud (no `/orbit/` path).
+
+For local development, create an ignored `.env.local` file:
+
+```dotenv
+VITE_GOOGLE_CLIENT_ID=your-web-client-id.apps.googleusercontent.com
+```
+
+Restart the dev server after changing this file. The client ID is public application configuration embedded in the JavaScript build; never put a client secret in a `VITE_` variable.
+
+ No client secret or server is required. The app requests only youtube.readonly and fetches every subscription page. Access tokens stay in memory and are never written to localStorage. Reconnect to refresh. Public distribution may require Google OAuth verification.
 
 Alternatively import Google Takeout's YouTube subscriptions.csv. Import replaces the current library. Orbit JSON exports preserve favorites and visits as well. Sample imagery is illustrative and loaded from Unsplash; real synced channels use YouTube thumbnails. Google Fonts are loaded remotely. No analytics.
 
