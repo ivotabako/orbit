@@ -35,14 +35,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        env:
-          VITE_GOOGLE_CLIENT_ID: ${{ vars.VITE_GOOGLE_CLIENT_ID }}
-        run: |
-          if [[ -z "$VITE_GOOGLE_CLIENT_ID" ]]; then
-            echo "::error::Set the VITE_GOOGLE_CLIENT_ID repository variable in Settings > Secrets and variables > Actions > Variables."
-            exit 1
-          fi
-          npm run build
+        run: npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
